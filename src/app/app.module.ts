@@ -1,13 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { PaymentsComponent } from './payments/payments.component';
+import { PaymentsComponent } from './components/payments/payments.component';
 
-import { PaymentsService } from './payments.service';
+import { PaymentsService } from './services/payments/payments.service';
 
 const ROUTES = [
   {
@@ -29,6 +30,7 @@ const ROUTES = [
   imports: [
     BrowserModule,
     HttpModule,
+    FormsModule,
     RouterModule.forRoot(ROUTES)
   ],
   providers: [PaymentsService],
