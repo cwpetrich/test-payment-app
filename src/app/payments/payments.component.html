@@ -1,3 +1,10 @@
-<p>
-  payments works!
-</p>
+<div class="container">
+  <div class="row" *ngFor="let payment of payments">
+    <div class="card card-block">
+      <h4 class="card-title">{{ payment.amount }}</h4>
+      <p class="card-text">{{ payment.paymentDate }} {{ payment.created }}</p>
+      <a href="#" class="card-link">Card link</a>
+      <a href="#" class="card-link">Another link</a>
+    </div>
+  </div>
+</div>

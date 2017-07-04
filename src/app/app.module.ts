@@ -1,10 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { PaymentsComponent } from './payments/payments.component';
+
+import { PaymentsService } from './payments.service';
 
 const ROUTES = [
   {
@@ -25,9 +28,10 @@ const ROUTES = [
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     RouterModule.forRoot(ROUTES)
   ],
-  providers: [],
+  providers: [PaymentsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
