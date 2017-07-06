@@ -1,10 +1,47 @@
 <div class="container">
-  <div class="row" *ngFor="let payment of payments">
-    <div class="card card-block">
-      <h4 class="card-title">{{ payment.amount }}</h4>
-      <p class="card-text">{{ payment.paymentDate }} {{ payment.created }}</p>
-      <a href="#" class="card-link">Card link</a>
-      <a href="#" class="card-link">Another link</a>
+  <div class="row">
+    <div class="col-md-3">
+      <h3>New Payment</h3>
     </div>
+    <div class="col-md-9">
+      <form class="form-inline" (submit)="addPayment($event)">
+        <div class="form-group">
+          <input type="number" name="amount" class="form-control" placeholder="$0.00" [(ngModel)]="newPayment.amount" step="0.01">
+          <input type="date" name="paymentDate" class="form-control" placeholder="2017-06-25" [(ngModel)]="newPayment.paymentDate">
+          <input type="submit" value="Add" class="btn btn-success">
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col-md-1">
+      <h3>Amount</h3>
+    </div>
+    <div class="col-md-4">
+      <h3>Payment Received</h3>
+    </div>
+    <div class="col-md-4">
+      <h3>Payment Created</h3>
+    </div>
+    <div class="col-md-3"></div>
+  </div>
+  <hr>
+  <div class="row" *ngFor="let payment of payments">
+    <div class="col-md-1">
+      {{payment.amount}}
+    </div>
+    <div class="col-md-4">
+      {{payment.paymentDate}}
+    </div>
+    <div class="col-md-4">
+      {{payment.created}}
+    </div>
+    <div class="col-md-3">
+      <input type="button" value="Delete" class="btn btn-danger" (click)="deletePayment(payment._id)">
+    </div>
+    <br><br>
   </div>
 </div>
