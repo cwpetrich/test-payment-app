@@ -29,11 +29,7 @@ router.get('/payment/:id', (req, res, next) => {
 });
 
 router.post('/payment', (req, res, next) => {
-  console.log(req);
-  console.log(res);
-  console.log(next);
   var payment = req.body;
-  console.log(payment);
   if (!payment.amount || !payment.paymentDate) {
     res.status(400);
     res.json({
